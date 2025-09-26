@@ -71,7 +71,7 @@ jobs:
           distribution: ${{ matrix.distribution }}
           java-version: ${{ matrix.java-version }}
       - name: Execute Gradle build
-        run: ./gradlew clean assembleDebug -Dscan.tag.H${{ matrix.java-version }}-${{ matrix.distribution }} -Dscan.tag.WORKAROUND_AGP_8.2.2_NEW
+        run: ./gradlew clean assembleDebug -Dscan.tag.H${{ matrix.java-version }}-${{ matrix.distribution }} -Dscan.tag.test
         env:
           DEVELOCITY_ACCESS_KEY: ${{ secrets.GE_API_KEY }}
           AGENT_JAVA_VERSION: "${{ matrix.java-version }}-${{ matrix.distribution }}"
