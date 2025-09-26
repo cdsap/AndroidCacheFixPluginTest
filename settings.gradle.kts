@@ -26,6 +26,21 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        maven {
+           url = uri("https://plugins.grdev.net/m2")
+       }
+    }
+}
+plugins {
+    id("com.gradle.develocity") version "4.2"
+}
+
+develocity {
+    server = "https://ge.solutions-team.gradle.com/"
+    allowUntrustedServer = true
+    buildScan {
+        uploadInBackground.set(false)
+        publishing { true }
     }
 }
 

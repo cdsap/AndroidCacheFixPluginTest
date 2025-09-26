@@ -39,4 +39,11 @@ plugins {
     alias(libs.plugins.google.osslicenses) apply false
     alias(libs.plugins.room) apply false
     alias(libs.plugins.nowinandroid.root)
+    id("org.gradle.android.cache-fix") version "3.0.2" apply false
+}
+
+subprojects {
+    plugins.withType<com.android.build.gradle.api.AndroidBasePlugin>() {
+        apply(plugin = "org.gradle.android.cache-fix")
+    }
 }
