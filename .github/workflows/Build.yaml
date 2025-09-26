@@ -14,6 +14,10 @@ jobs:
           - distribution: temurin
             java-version: 22
           - distribution: temurin
+            java-version: 23
+          - distribution: temurin
+            java-version: 24
+          - distribution: temurin            
             java-version: 25
           - distribution: zulu
             java-version: 17
@@ -21,6 +25,10 @@ jobs:
             java-version: 21
           - distribution: zulu
             java-version: 22
+          - distribution: zulu
+            java-version: 23
+          - distribution: zulu
+            java-version: 24
           - distribution: zulu
             java-version: 25
           - distribution: liberica
@@ -30,6 +38,10 @@ jobs:
           - distribution: liberica
             java-version: 22
           - distribution: liberica
+            java-version: 23
+          - distribution: liberica
+            java-version: 24            
+          - distribution: liberica
             java-version: 25
           - distribution: oracle
             java-version: 17
@@ -37,6 +49,10 @@ jobs:
             java-version: 21
           - distribution: oracle
             java-version: 22
+          - distribution: oracle
+            java-version: 23
+          - distribution: oracle
+            java-version: 24
           - distribution: oracle
             java-version: 25
           - distribution: corretto
@@ -46,15 +62,15 @@ jobs:
           - distribution: corretto
             java-version: 22
           - distribution: corretto
+            java-version: 23
+          - distribution: corretto
+            java-version: 24
+          - distribution: corretto
             java-version: 25
           - distribution: microsoft
             java-version: 17
           - distribution: microsoft
             java-version: 21
-          - distribution: microsoft
-            java-version: 22
-          - distribution: microsoft
-            java-version: 25
           - distribution: semeru
             java-version: 17
           - distribution: semeru
@@ -62,7 +78,9 @@ jobs:
           - distribution: semeru
             java-version: 22
           - distribution: semeru
-            java-version: 25
+            java-version: 23
+          - distribution: semeru
+            java-version: 24
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -73,6 +91,6 @@ jobs:
       - name: Execute Gradle build
         run: ./gradlew assembleDebug -Dscan.tag.H${{ matrix.java-version }}-${{ matrix.distribution }} -Dscan.tag.test
         env:
-          DEVELOCITY_ACCESS_KEY: ${{ secrets.GE_API_KEY }}
+          DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
           AGENT_JAVA_VERSION: "${{ matrix.java-version }}-${{ matrix.distribution }}"
     continue-on-error: true
