@@ -19,7 +19,7 @@ jobs:
       - name: Process Watcher 
         uses: cdsap/build-process-watcher@ingest-data
       - name: Execute Gradle build (3)
-        run: ./gradlew testDebugUnitTest -Dscan.tag.H${{ matrix.java-version }}-${{ matrix.distribution }} -Dscan.tag.3_0_1
+        run: ./gradlew test -Dscan.tag.H${{ matrix.java-version }}-${{ matrix.distribution }} -Dscan.tag.3_0_1
         env:
           DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
           AGENT_JAVA_VERSION: "${{ matrix.java-version }}-${{ matrix.distribution }}"
